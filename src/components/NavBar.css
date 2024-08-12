@@ -1,0 +1,48 @@
+/* NavBar.css */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #FFEBE8; /* Soft pastel pink background */
+    color: #2C2C54; /* Dark navy blue for text */
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo img {
+    height: 80px; /* Adjust the logo height */
+    width: auto;
+    margin-right: 10px; /* Space between the logo and the text */
+}
+
+.navbar-title {
+    font-size: 1.8rem; /* Adjust the font size of the title */
+    font-weight: bold;
+    color: #2C2C54; /* Dark navy blue text */
+}
+
+.navbar-links {
+    display: flex;
+    gap: 2rem; /* Increase space between the links for a more spacious look */
+}
+
+.navbar-links a {
+    color: #2C2C54; /* Dark navy blue for links */
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-links a.active {
+    border-bottom: 2px solid #FF7A8A; /* Accent color for the active link, a soft red-pink */
+}
+
+.navbar-links a:hover {
+    color: #FF7A8A; /* Hover effect with a soft red-pink color */
+    text-decoration: underline;
+}

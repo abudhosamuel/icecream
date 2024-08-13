@@ -17,15 +17,14 @@ const OrderForm = ({ onAddOrder }) => {
         onAddOrder(order);
     };
 
+    // Calculate the total price of the order
     const calculateTotalPrice = () => {
-        // Calculate total price based on selected flavors and toppings
-        return selectedFlavors.length * 3.5 + toppings.length * 0.5; // Example calculation
+        return selectedFlavors.length * 3.5 + toppings.length * 0.5;
     };
 
     return (
         <form onSubmit={handleSubmit}>
             <h2>Customize Your Order</h2>
-            {/* You can add flavor selection, container selection, and toppings input fields here */}
             <button type="submit">Place Order</button>
         </form>
     );

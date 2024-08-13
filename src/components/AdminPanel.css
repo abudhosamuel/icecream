@@ -4,7 +4,7 @@
 }
 
 h2 {
-    color: #2C2C54; /* Dark navy blue */
+    color: #2C2C54;
 }
 
 .flavor-table {
@@ -20,7 +20,7 @@ h2 {
 }
 
 .flavor-table th {
-    background-color: #FFEBE8; /* Soft pastel pink */
+    background-color: #FFEBE8;
     color: #2C2C54;
 }
 
@@ -35,23 +35,23 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    color: #fff; /* Ensure text is white for good contrast */
+    color: #fff;
 }
 
 button.edit-btn {
-    background-color: #28a745; /* Green color for edit button */
+    background-color: #28a745;
 }
 
 button.edit-btn:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: #218838;
 }
 
 button.delete-btn {
-    background-color: #dc3545; /* Red color for delete button */
+    background-color: #dc3545;
 }
 
 button.delete-btn:hover {
-    background-color: #c82333; /* Darker red on hover */
+    background-color: #c82333;
 }
 
 .edit-form {

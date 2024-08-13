@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import './NavBar.css'; // Assuming you'll add some custom styles
+import './NavBar.css';
 
-const NavBar = () => {
+const NavBar = ({ onSearch }) => {
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const handleSearchChange = (e) => {
+        setSearchQuery(e.target.value);
+        onSearch(e.target.value);
+    };
+
     return (
         <nav className="navbar">
             <div className="navbar-logo">
@@ -13,6 +20,15 @@ const NavBar = () => {
                 <NavLink to="/flavors" className={({ isActive }) => isActive ? "active" : ""}>Explore Flavors</NavLink>
                 <NavLink to="/order-history" className={({ isActive }) => isActive ? "active" : ""}>Order History</NavLink>
                 <NavLink to="/admin" className={({ isActive }) => isActive ? "active" : ""}>Admin Panel</NavLink>
+            </div>
+            <div className="navbar-search">
+                <input
+                    type="text"
+                    placeholder="Search Flavors..."
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                />
+                <button onClick={() => onSearch(searchQuery)}>Search</button>
             </div>
         </nav>
     );

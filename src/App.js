@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import FlavorList from './components/FlavorList';
 import FlavorDetail from './components/FlavorDetail';
@@ -8,15 +8,17 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 
 const App = () => {
+    const [searchQuery, setSearchQuery] = useState('');
+
     return (
         <Router>
-            <NavBar />
+            <NavBar onSearch={setSearchQuery} />
             <Routes>
                 <Route path="/flavors/:id" element={<FlavorDetail />} />
-                <Route path="/flavors" element={<FlavorList />} />
+                <Route path="/flavors" element={<FlavorList searchQuery={searchQuery} />} />
                 <Route path="/order-history" element={<OrderHistory />} />
                 <Route path="/admin" element={<AdminPanel />} />
-                <Route path="/" element={<FlavorList />} />
+                <Route path="/" element={<FlavorList searchQuery={searchQuery} />} />
             </Routes>
             <Footer />
         </Router>

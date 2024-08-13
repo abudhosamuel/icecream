@@ -1,26 +1,63 @@
 import React, { useState, useEffect } from 'react';
+import './OrderHistory.css'; // Assuming you have a CSS file for styling
 
 const OrderHistory = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/orders')
-            .then(response => response.json())
-            .then(data => setOrders(data));
+        // Retrieve orders from localStorage
+        const storedOrders = JSON.parse(localStorage.getItem('orders')) || [];
+        setOrders(storedOrders);
     }, []);
 
+    const handleDelete = (id) => {
+        const updatedOrders = orders.filter(order => order.id !== id);
+        setOrders(updatedOrders);
+        localStorage.setItem('orders', JSON.stringify(updatedOrders));
+    };
+
     return (
-        <div className="order-history">
-            <h2>Your Order History</h2>
-            {orders.map(order => (
-                <div key={order.id} className="order-item">
-                    <p>Date: {order.date}</p>
-                    <p>Flavors: {order.flavors.join(', ')}</p>
-                    <p>Container: {order.container}</p>
-                    <p>Toppings: {order.toppings.join(', ')}</p>
-                    <p>Total Price: ${order.totalPrice}</p>
-                </div>
-            ))}
+        <div className="order-history-container">
+            <h2>Order History</h2>
+            {orders.length === 0 ? (
+                <p>No orders have been made yet.</p>
+            ) : (
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Flavor</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {orders.map(order => (
+                            <tr key={order.id}>
+                                <td>
+                                    <img 
+                                        src={order.image} 
+                                        alt={order.flavor} 
+                                        style={{ width: '100px', height: 'auto' }} 
+                                    />
+                                </td>
+                                <td>{order.flavor}</td>
+                                <td>{order.quantity}</td>
+                                <td>${(order.quantity * order.price).toFixed(2)}</td>
+                                <td>
+                                    <button 
+                                        onClick={() => handleDelete(order.id)} 
+                                        className="delete-button"
+                                    >
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            )}
         </div>
     );
 };

@@ -14,35 +14,60 @@
 }
 
 .navbar-logo img {
-    height: 80px; /* Adjust the logo height */
+    height: 80px;
     width: auto;
-    margin-right: 10px; /* Space between the logo and the text */
+    margin-right: 10px;
 }
 
 .navbar-title {
-    font-size: 1.8rem; /* Adjust the font size of the title */
+    font-size: 1.8rem;
     font-weight: bold;
-    color: #2C2C54; /* Dark navy blue text */
+    color: #2C2C54;
 }
 
 .navbar-links {
     display: flex;
-    gap: 2rem; /* Increase space between the links for a more spacious look */
+    gap: 2rem;
 }
 
 .navbar-links a {
-    color: #2C2C54; /* Dark navy blue for links */
+    color: #2C2C54;
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 500;
-    transition: color 0.3s ease-in-out;
 }
 
 .navbar-links a.active {
-    border-bottom: 2px solid #FF7A8A; /* Accent color for the active link, a soft red-pink */
+    border-bottom: 2px solid #FF7A8A;
 }
 
 .navbar-links a:hover {
-    color: #FF7A8A; /* Hover effect with a soft red-pink color */
     text-decoration: underline;
+}
+
+.navbar-search {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar-search input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.navbar-search button {
+    padding: 0.5rem 1rem;
+    background-color: #FF7A8A;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-search button:hover {
+    background-color: #FF5A6A; /* Darker shade for hover effect */
 }

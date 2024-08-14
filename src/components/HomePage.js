@@ -16,7 +16,7 @@ const HomePage = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentSlide(prev => (prev + 1) % flavors.length);
-        }, 3000); //Change slide every 3 seconds
+        }, 3000); 
         return () => clearInterval(interval);
     }, [flavors]);
 

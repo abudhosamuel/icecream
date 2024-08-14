@@ -11,7 +11,7 @@
         "Sprinkles",
         "Chocolate Sauce"
       ],
-      "servings": 4,
+      "servings": 0,
       "reviews": [
         {
           "id": 1,
@@ -32,7 +32,7 @@
         "Fruit Pieces",
         "Whipped Cream"
       ],
-      "servings": 2,
+      "servings": 0,
       "reviews": [
         {
           "id": 1,
@@ -200,15 +200,6 @@
           "comment": "Very refreshing, but a bit too sour for my taste."
         }
       ]
-    },
-    {
-      "id": 11,
-      "name": "Chocolate Bliss",
-      "description": "Delicious Chocolatey Goodness",
-      "price": "28",
-      "image": "https://th.bing.com/th/id/OIP.61Nw-vzs0HC6d5bY7Qh9VwHaEK?w=267&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7",
-      "category": "Chocolate",
-      "servings": "10"
     }
   ],
   "orders": [

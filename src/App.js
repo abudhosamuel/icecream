@@ -6,7 +6,7 @@ import OrderHistory from './components/OrderHistory';
 import AdminPanel from './components/AdminPanel';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
-import HomePage from './components/HomePage'; // Import the HomePage component
+import HomePage from './components/HomePage'; 
 
 const App = () => {
     const [searchQuery, setSearchQuery] = useState('');

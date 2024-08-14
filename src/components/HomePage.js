@@ -7,7 +7,7 @@ const HomePage = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     useEffect(() => {
-        fetch('http://localhost:3000/flavors')
+        fetch('http://localhost:3001/flavors')
             .then(response => response.json())
             .then(data => setFlavors(data))
             .catch(error => console.error("Error fetching flavors:", error));

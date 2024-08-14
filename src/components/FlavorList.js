@@ -6,7 +6,7 @@ const FlavorList = ({ searchQuery }) => {
     const [flavors, setFlavors] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/flavors')
+        fetch('http://localhost:3001/flavors')
             .then(response => response.json())
             .then(data => setFlavors(data))
             .catch(error => console.error("Error fetching flavors:", error));

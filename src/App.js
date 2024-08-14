@@ -6,6 +6,7 @@ import OrderHistory from './components/OrderHistory';
 import AdminPanel from './components/AdminPanel';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+import HomePage from './components/HomePage'; // Import the HomePage component
 
 const App = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -14,6 +15,7 @@ const App = () => {
         <Router>
             <NavBar onSearch={setSearchQuery} />
             <Routes>
+                <Route path="/" element={<HomePage />} />
                 <Route path="/flavors/:id" element={<FlavorDetail />} />
                 <Route path="/flavors" element={<FlavorList searchQuery={searchQuery} />} />
                 <Route path="/order-history" element={<OrderHistory />} />
@@ -26,3 +28,4 @@ const App = () => {
 };
 
 export default App;
+

@@ -1,0 +1,92 @@
+.home-page {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f8f8f8;
+}
+
+.welcome-text {
+    margin-bottom: 2rem;
+}
+
+.welcome-text h1 {
+    color: #2C2C54; /* Dark navy blue */
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-text p {
+    color: #555;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    background: #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slide {
+    display: none;
+    padding: 20px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide img {
+    width: 40%; /* Smaller width for the images */
+    height: auto;
+    border-radius: 10px;
+}
+
+.slide-caption {
+    margin-top: 1rem;
+    padding: 10px;
+    background-color: #fff; /* White background */
+    color: #000; /* Black text color */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for the caption */
+}
+
+.explore-flavors {
+    margin-top: 2rem;
+}
+
+.explore-button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #FF6F61; /* Coral color */
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.explore-button:hover {
+    background-color: #e65c50; /* Darker coral on hover */
+}
+
+.about-us {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.about-us h2 {
+    color: #2C2C54; /* Dark navy blue */
+}
+
+.about-us p {
+    color: #555;
+    line-height: 1.6;
+}

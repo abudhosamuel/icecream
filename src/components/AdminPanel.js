@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './AdminPanel.css';
+import Login from './LogIn';
 
 const AdminPanel = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [flavors, setFlavors] = useState([]);
     const [editingFlavor, setEditingFlavor] = useState(null);
     const [formData, setFormData] = useState({
@@ -15,7 +17,11 @@ const AdminPanel = () => {
     });
 
     useEffect(() => {
-        fetchFlavors();
+        const loggedIn = localStorage.getItem('loggedIn');
+        if (loggedIn === 'true') {
+            setIsLoggedIn(true);
+            fetchFlavors();
+        }
     }, []);
 
     const fetchFlavors = () => {
@@ -55,7 +61,6 @@ const AdminPanel = () => {
 
     const handleSave = () => {
         if (editingFlavor) {
-            //Updates an existing flavor
             const updatedFlavor = {
                 ...editingFlavor,
                 ...formData
@@ -73,10 +78,9 @@ const AdminPanel = () => {
             })
             .catch(error => console.error("Error updating flavor:", error));
         } else {
-            //Adds a new flavor
             const newFlavor = {
                 ...formData,
-                id: Date.now() //Use to timestamp as an unique ID
+                id: Date.now()
             };
 
             fetch('http://localhost:3001/flavors', {
@@ -104,100 +108,113 @@ const AdminPanel = () => {
         });
     };
 
+    const handleLogout = () => {
+        localStorage.removeItem('loggedIn');
+        setIsLoggedIn(false);
+    };
+
     return (
-        <div className="admin-panel">
-            <h2>Manage Flavors</h2>
-            <div className="edit-form">
-                <h3>{editingFlavor ? 'Edit Flavor' : 'Add New Flavor'}</h3>
-                <label>ID:</label>
-                <input
-                    type="text"
-                    name="id"
-                    value={formData.id}
-                    onChange={handleInputChange}
-                    disabled={editingFlavor !== null} //Disable ID input when editing
-                />
-                <label>Name:</label>
-                <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                />
-                <label>Description:</label>
-                <textarea
-                    name="description"
-                    value={formData.description}
-                    onChange={handleInputChange}
-                />
-                <label>Price:</label>
-                <input
-                    type="number"
-                    name="price"
-                    value={formData.price}
-                    onChange={handleInputChange}
-                />
-                <label>Image URL:</label>
-                <input
-                    type="text"
-                    name="image"
-                    value={formData.image}
-                    onChange={handleInputChange}
-                />
-                <label>Category:</label>
-                <input
-                    type="text"
-                    name="category"
-                    value={formData.category}
-                    onChange={handleInputChange}
-                />
-                <label>Servings:</label>
-                <input
-                    type="number"
-                    name="servings"
-                    value={formData.servings}
-                    onChange={handleInputChange}
-                />
-                <button className="save-btn" onClick={handleSave}>
-                    {editingFlavor ? 'Save Changes' : 'Add Flavor'}
-                </button>
-                {editingFlavor && (
-                    <button className="cancel-btn" onClick={() => setEditingFlavor(null)}>
-                        Cancel
-                    </button>
-                )}
-            </div>
-            <table className="flavor-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Category</th>
-                        <th>Servings</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {flavors.map(flavor => (
-                        <tr key={flavor.id}>
-                            <td>{flavor.id}</td>
-                            <td>{flavor.name}</td>
-                            <td>{flavor.description}</td>
-                            <td>${flavor.price}</td>
-                            <td>{flavor.category}</td>
-                            <td>{flavor.servings}</td>
-                            <td>
-                                <button className="edit-btn" onClick={() => handleEdit(flavor)}>Edit</button>
-                                <button className="delete-btn" onClick={() => handleDelete(flavor.id)}>Delete</button>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
+        <>
+            {isLoggedIn ? (
+                <div className="admin-panel">
+                    <h2>Manage Flavors</h2>
+                    <button onClick={handleLogout}>Logout</button>
+                    <div className="edit-form">
+                        <h3>{editingFlavor ? 'Edit Flavor' : 'Add New Flavor'}</h3>
+                        <label>ID:</label>
+                        <input
+                            type="text"
+                            name="id"
+                            value={formData.id}
+                            onChange={handleInputChange}
+                            disabled={editingFlavor !== null}
+                        />
+                        <label>Name:</label>
+                        <input
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleInputChange}
+                        />
+                        <label>Description:</label>
+                        <textarea
+                            name="description"
+                            value={formData.description}
+                            onChange={handleInputChange}
+                        />
+                        <label>Price:</label>
+                        <input
+                            type="number"
+                            name="price"
+                            value={formData.price}
+                            onChange={handleInputChange}
+                        />
+                        <label>Image URL:</label>
+                        <input
+                            type="text"
+                            name="image"
+                            value={formData.image}
+                            onChange={handleInputChange}
+                        />
+                        <label>Category:</label>
+                        <input
+                            type="text"
+                            name="category"
+                            value={formData.category}
+                            onChange={handleInputChange}
+                        />
+                        <label>Servings:</label>
+                        <input
+                            type="number"
+                            name="servings"
+                            value={formData.servings}
+                            onChange={handleInputChange}
+                        />
+                        <button className="save-btn" onClick={handleSave}>
+                            {editingFlavor ? 'Save Changes' : 'Add Flavor'}
+                        </button>
+                        {editingFlavor && (
+                            <button className="cancel-btn" onClick={() => setEditingFlavor(null)}>
+                                Cancel
+                            </button>
+                        )}
+                    </div>
+                    <table className="flavor-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>Servings</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {flavors.map(flavor => (
+                                <tr key={flavor.id}>
+                                    <td>{flavor.id}</td>
+                                    <td>{flavor.name}</td>
+                                    <td>{flavor.description}</td>
+                                    <td>${flavor.price}</td>
+                                    <td>{flavor.category}</td>
+                                    <td>{flavor.servings}</td>
+                                    <td>
+                                        <button className="edit-btn" onClick={() => handleEdit(flavor)}>Edit</button>
+                                        <button className="delete-btn" onClick={() => handleDelete(flavor.id)}>Delete</button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            ) : (
+                <Login onLogin={() => setIsLoggedIn(true)} />
+            )}
+        </>
     );
 };
 
 export default AdminPanel;
+

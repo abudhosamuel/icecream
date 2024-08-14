@@ -11,7 +11,7 @@
         "Sprinkles",
         "Chocolate Sauce"
       ],
-      "servings": 9,
+      "servings": 6,
       "reviews": [
         {
           "id": 1,
@@ -53,7 +53,7 @@
         "Fruit Pieces",
         "Whipped Cream"
       ],
-      "servings": 8,
+      "servings": 5,
       "reviews": [
         {
           "id": 1,
@@ -221,6 +221,15 @@
           "comment": "Very refreshing, but a bit too sour for my taste."
         }
       ]
+    },
+    {
+      "id": 1723623260981,
+      "name": "gdgdg",
+      "description": "gdggd",
+      "price": "3",
+      "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
+      "category": "rwee",
+      "servings": "5"
     }
   ],
   "orders": [

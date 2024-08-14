@@ -9,7 +9,7 @@
 }
 
 .welcome-text h1 {
-    color: #2C2C54; /* Dark navy blue */
+    color: #2C2C54; 
     font-size: 2rem;
     margin-bottom: 0.5rem;
 }
@@ -41,7 +41,7 @@
 }
 
 .slide img {
-    width: 40%; /* Smaller width for the images */
+    width: 40%; 
     height: auto;
     border-radius: 10px;
 }
@@ -49,10 +49,10 @@
 .slide-caption {
     margin-top: 1rem;
     padding: 10px;
-    background-color: #fff; /* White background */
-    color: #000; /* Black text color */
+    background-color: #fff; 
+    color: #000; 
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for the caption */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .explore-flavors {
@@ -63,7 +63,7 @@
     display: inline-block;
     padding: 10px 20px;
     color: #fff;
-    background-color: #FF6F61; /* Coral color */
+    background-color: #FF6F61; 
     border-radius: 5px;
     text-decoration: none;
     font-size: 1.2rem;
@@ -71,7 +71,7 @@
 }
 
 .explore-button:hover {
-    background-color: #e65c50; /* Darker coral on hover */
+    background-color: #e65c50; 
 }
 
 .about-us {
@@ -83,7 +83,7 @@
 }
 
 .about-us h2 {
-    color: #2C2C54; /* Dark navy blue */
+    color: #2C2C54; 
 }
 
 .about-us p {

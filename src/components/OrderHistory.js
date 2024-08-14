@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './OrderHistory.css'; // Assuming you have a CSS file for styling
+import './OrderHistory.css'; 
 
 const OrderHistory = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        // Retrieve orders from localStorage
+        //Retrieve orders from the localStorage
         const storedOrders = JSON.parse(localStorage.getItem('orders')) || [];
         setOrders(storedOrders);
     }, []);

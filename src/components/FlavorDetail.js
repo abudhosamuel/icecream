@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import './FlavorDetail.css';
 
 const FlavorDetail = () => {
-    // Get id from URL parameters
+    //Get id from URL parameters
     const { id } = useParams(); 
     const [flavor, setFlavor] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -15,7 +15,7 @@ const FlavorDetail = () => {
     const navigate = useNavigate(); 
 
     useEffect(() => {
-        fetch(`http://localhost:3000/flavors/${id}`)
+        fetch(`http://localhost:3001/flavors/${id}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -41,12 +41,12 @@ const FlavorDetail = () => {
             return;
         }
     
-        // calculate total price
+        //calculate total price
         const pricePerUnit = parseFloat(flavor.price); 
         const totalPrice = (quantity * pricePerUnit).toFixed(2);
     
         const order = {
-            // Generate a unique id for the order
+            //Generate a unique id for the order
             id: Date.now(),
             flavor: flavor.name,
             image: flavor.image,
@@ -59,8 +59,8 @@ const FlavorDetail = () => {
         existingOrders.push(order);
         localStorage.setItem('orders', JSON.stringify(existingOrders));
     
-        // Update the flavors
-        fetch(`http://localhost:3000/flavors/${id}`, {
+        //Update the flavors
+        fetch(`http://localhost:3001/flavors/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -69,7 +69,7 @@ const FlavorDetail = () => {
                 servings: flavor.servings - quantity
             })
         }).then(() => {
-            // Redirect to order history page after making the order
+            //Redirect to order history page after making the order
             navigate('/order-history');
         }).catch(error => console.error('Error updating servings:', error));
     };

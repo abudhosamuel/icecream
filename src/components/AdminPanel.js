@@ -19,14 +19,14 @@ const AdminPanel = () => {
     }, []);
 
     const fetchFlavors = () => {
-        fetch('http://localhost:3000/flavors')
+        fetch('http://localhost:3001/flavors')
             .then(response => response.json())
             .then(data => setFlavors(data))
             .catch(error => console.error("Error fetching flavors:", error));
     };
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:3000/flavors/${id}`, {
+        fetch(`http://localhost:3001/flavors/${id}`, {
             method: 'DELETE'
         })
         .then(() => {
@@ -55,13 +55,13 @@ const AdminPanel = () => {
 
     const handleSave = () => {
         if (editingFlavor) {
-            // Update an existing flavor
+            //Updates an existing flavor
             const updatedFlavor = {
                 ...editingFlavor,
                 ...formData
             };
 
-            fetch(`http://localhost:3000/flavors/${editingFlavor.id}`, {
+            fetch(`http://localhost:3001/flavors/${editingFlavor.id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(updatedFlavor)
@@ -73,13 +73,13 @@ const AdminPanel = () => {
             })
             .catch(error => console.error("Error updating flavor:", error));
         } else {
-            // Add a new flavor
+            //Adds a new flavor
             const newFlavor = {
                 ...formData,
-                id: Date.now() // Use timestamp as a unique ID
+                id: Date.now() //Use to timestamp as an unique ID
             };
 
-            fetch('http://localhost:3000/flavors', {
+            fetch('http://localhost:3001/flavors', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(newFlavor)
@@ -115,7 +115,7 @@ const AdminPanel = () => {
                     name="id"
                     value={formData.id}
                     onChange={handleInputChange}
-                    disabled={editingFlavor !== null} // Disable ID input when editing
+                    disabled={editingFlavor !== null} //Disable ID input when editing
                 />
                 <label>Name:</label>
                 <input

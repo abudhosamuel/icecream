@@ -1,11 +1,10 @@
-/* NavBar.css */
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem 2rem;
-    background-color: #FFEBE8; /* Soft pastel pink background */
-    color: #2C2C54; /* Dark navy blue for text */
+    background-color: #FBD3E9; 
+    color: #2C2C54;
 }
 
 .navbar-logo {
@@ -69,5 +68,5 @@
 }
 
 .navbar-search button:hover {
-    background-color: #FF5A6A; /* Darker shade for hover effect */
+    background-color: #FF5A6A; 
 }

@@ -50,6 +50,11 @@ const HomePage = () => {
                 <h2>About Us</h2>
                 <p>At Serenity Scoops, we believe that every scoop of ice cream should be a moment of pure bliss. Our mission is to bring you the most delightful and indulgent flavors crafted from the finest ingredients. Whether you're a fan of classic favorites or adventurous new tastes, we have something for everyone. Step into our world of creamy goodness and let each spoonful transport you to a place of serenity and joy.</p>
             </div>
+
+            <div className="image-container">
+                <img src="banner.png" alt="Ice Cream" className="overlay-image" />
+                <div className="centered-text">It's a great day for ice cream</div>
+            </div>
         </div>
     );
 };

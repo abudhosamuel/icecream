@@ -1,8 +1,6 @@
 {
   "flavors": [
     {
-<<<<<<< HEAD
-=======
       "id": "1",
       "name": "Vanilla strawberry",
       "description": "A classic favorite with a rich, creamy vanilla flavor.",
@@ -24,7 +22,6 @@
       ]
     },
     {
->>>>>>> 417865b555044624cda70c916ad52293145e9a6c
       "id": "3",
       "name": "Strawberry Delight",
       "description": "Fresh, fruity, and perfectly sweet strawberry ice cream.",
@@ -56,7 +53,7 @@
         "Chocolate Chips",
         "Sprinkles"
       ],
-      "servings": 5,
+      "servings": 7,
       "reviews": [
         {
           "id": 1,
@@ -203,18 +200,6 @@
           "comment": "Very refreshing, but a bit too sour for my taste."
         }
       ]
-<<<<<<< HEAD
-    },
-    {
-      "id": "11",
-      "name": "Chocolate Bliss",
-      "description": "Delicious Chocolatey Goodness",
-      "price": "28",
-      "image": "https://th.bing.com/th/id/OIP.61Nw-vzs0HC6d5bY7Qh9VwHaEK?w=267&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7",
-      "category": "Chocolate",
-      "servings": "10"
-=======
->>>>>>> 417865b555044624cda70c916ad52293145e9a6c
     }
   ],
   "orders": [

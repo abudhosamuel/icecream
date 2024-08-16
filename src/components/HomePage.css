@@ -42,11 +42,11 @@
 
 .slide img {
     width: 100%; 
-    max-width: 800px; /* Ensures consistent width */
-    height: 400px; /* Ensures consistent height */
-    object-fit: cover; /* Ensures image covers the container while maintaining aspect ratio */
+    max-width: 800px; 
+    height: 400px; 
+    object-fit: cover; 
     border-radius: 10px;
-    margin: 0 auto; /* Center the image */
+    margin: 0 auto; 
 }
 
 .slide-caption {

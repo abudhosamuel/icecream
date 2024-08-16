@@ -41,9 +41,12 @@
 }
 
 .slide img {
-    width: 40%; 
-    height: auto;
+    width: 100%; 
+    max-width: 800px; /* Ensures consistent width */
+    height: 400px; /* Ensures consistent height */
+    object-fit: cover; /* Ensures image covers the container while maintaining aspect ratio */
     border-radius: 10px;
+    margin: 0 auto; /* Center the image */
 }
 
 .slide-caption {
@@ -138,4 +141,3 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
     z-index: 2; /* Ensure text is above the overlay */
 }
-
